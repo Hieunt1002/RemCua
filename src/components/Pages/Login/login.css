@@ -1,0 +1,93 @@
+.container {
+    padding: 1rem;
+    margin: 4rem;
+}
+
+.container-login {
+    width: 100%;
+    max-width: 30rem;
+    padding: 0.5rem;
+    background-color: #d5d2d2;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-image {
+    width: 5rem;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img {
+    width: 100%;
+}
+
+.login-form {
+    width: 100%;
+    padding: 0.75rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    background-color: #b6cbe1;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+}
+.ip-email{
+    outline: none;
+}
+.ip-email:focus {
+    outline: 2px solid #90CDF4;
+}
+
+.ip {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.ip:focus-within {
+    outline: 2px solid #90CDF4;;
+}
+
+.ip-password {
+    width: 100%;
+    background-color: #b6cbe1;
+    border: none;
+    outline: none;
+}
+
+.showPword {
+    display: flex;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.btn-submit-login {
+    width: 100%;
+    max-width: 10rem;
+    background-color: #ff0000;
+    color: #fff;
+    font-size: 1.25rem;
+    margin: auto;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    border-radius: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+}
+.btn-submit-login:hover {
+    background-color: #986767;
+}
+.signup-text{
+    text-align: left;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
