@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Odibee Sans', cursive;
+}
+
+.product-list {
+    padding-top: 100px;
+}
+.product-left {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Các sản phẩm sẽ căn đều ra hai bên */
+}
+
+.product-left .product-left-1 {
+    width: calc(25% - 10px); /* 25% cho 4 sản phẩm, trừ đi khoảng cách giữa chúng */
+    margin-bottom: 20px; /* Khoảng cách dưới của mỗi sản phẩm */
+}
+
+.product-left .product-left-1 img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-left .product-left-1 .product-left-text {
+    padding: 10px;
+    text-align: center;
+}
+.product-left .product-left-1 .product-left-text h5,
+.product-left .product-left-1 .product-left-text h4 {
+    margin: 5px 0;
+}
+
+.product-left .product-left-1 .product-left-text div {
+    margin-bottom: 10px;
+}
+.product-button-wrapper {
+    text-align: center;
+    margin-top: 10px; /* Để tạo khoảng cách giữa sản phẩm và nút button */
+}
+.product-left-1 {
+    position: relative;
+}
+
+.product-button-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
