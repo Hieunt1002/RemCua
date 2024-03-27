@@ -93,7 +93,6 @@
 }
 
 .form-outline {
-  margin-top: 5px;
   flex: 1;
   margin-right: 10px;
   font-size: 1rem;
@@ -142,7 +141,6 @@
   padding-top: 10px;
   display: flex;
   flex-wrap: wrap;
-  padding-left: 80px;
 }
 
 .products-1 .product-img img {
@@ -163,10 +161,8 @@
   margin-bottom: 5px;
 }
 
-/* ProductItem.css */
 
 .product-button-wrapper {
   text-align: center;
-  /* margin-top: 10px; */
   padding-bottom: 10px;
 }

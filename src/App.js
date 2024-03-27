@@ -18,7 +18,7 @@ function App() {
         <Route path='/services' Component={Services}/>
         <Route path='/products' Component={Products}/>
         <Route path='/sign-up' Component={SignUp}/>
-        <Route path='/productdetal' Component={ProductDetail}/>
+        <Route path='/productdetal/:id' Component={ProductDetail}/>
       </Routes>
       <Footer />
     </Router>

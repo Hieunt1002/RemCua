@@ -6,10 +6,10 @@ import { Button } from './Button';
 function ProductItem(props) {
     return (
         <div className="product-item">
-            <Link to={`/productdetal`}> {/* Sửa đường dẫn để chuyển hướng đến trang ProductDetail với ID của sản phẩm */}
-                <img src={props.src} alt="rem cua" />
+            <Link to={`/productdetal/${props.productId}`} style={{textDecoration : 'none', color : 'black'}}> {/* Sửa đường dẫn để chuyển hướng đến trang ProductDetail với ID của sản phẩm */}
+                <img src={props.pImg} alt="rem cua" />
                 <div className="product-text">
-                    <h5>{props.price}</h5>
+                    <h5>{props.price}.VNĐ</h5>
                     <div>
                         <i className="far fa-star"></i>
                         <i className="far fa-star"></i>
