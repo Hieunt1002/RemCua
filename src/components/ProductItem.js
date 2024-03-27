@@ -21,9 +21,11 @@ function ProductItem(props) {
                 </div>
             </Link>
             <div className="product-button-wrapper">
-                <Button buttonStyle='btn--outline'>
-                    <Link to={props.url}>ADD TO CART</Link>
-                </Button>
+                <div style={{backgroundColor : 'green', width : '200px', marginLeft : 'auto', marginRight : 'auto'}}>
+                    <Button buttonStyle='btn--outline'>
+                        <Link to={props.url} style={{ textDecoration: 'none' }}>ADD TO CART</Link>
+                    </Button>
+                </div>
             </div>
         </div>
     );

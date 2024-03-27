@@ -8,7 +8,7 @@ function ProductDetail() {
         <>
             <div className='productdetail-container'>
                 <div className='product-img'>
-                    <img src={ig} alt="" />
+                    <img src={ig} alt="" style={{height : '400px', marginBottom: '40px'}}/>
                 </div>
                 <div className="product-text">
                     <h1>Name Product: </h1>
@@ -23,8 +23,7 @@ function ProductDetail() {
                     </div>
                     <div className="size">
                         <h2>Quantity</h2>
-                        <input type="number" id="quantity" name="quantity" value="1" min="1" />
-                        <input type="text" id="product-id" name="productId" value="${data.productId}" hidden />
+                        <input type="number" value="1" min="1" max='10' />
                         <h5>Category: </h5>
                         <div className="cart">
                             <Button buttonStyle='btn--outline'>Add To Cart</Button>
