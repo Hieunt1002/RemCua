@@ -6,7 +6,7 @@ import { Button } from './Button';
 function ProductItem(props) {
     return (
         <div className="product-item">
-            <Link to={props.path}>
+            <Link to={`/productdetal`}> {/* Sửa đường dẫn để chuyển hướng đến trang ProductDetail với ID của sản phẩm */}
                 <img src={props.src} alt="rem cua" />
                 <div className="product-text">
                     <h5>{props.price}</h5>
@@ -21,7 +21,7 @@ function ProductItem(props) {
                 </div>
             </Link>
             <div className="product-button-wrapper">
-                <Button>
+                <Button buttonStyle='btn--outline'>
                     <Link to={props.url}>ADD TO CART</Link>
                 </Button>
             </div>
