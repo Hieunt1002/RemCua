@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from './Button';
-import ig from '../images/man-vai-tron-can-nang-dep.jpg'; // Placeholder image, replace with actual product images.
 import './ProductDetail.css'; // Import CSS file
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { API_KEY } from '../utils/createAxios';
 import axios from 'axios';
 
@@ -11,7 +10,8 @@ function ProductDetail() {
     const [data, setData] = useState('');
     const [brand, setBrand] = useState('');
     const [quantity, setQuantity] = useState(1);
-
+    const user = localStorage.getItem('user');
+    const navigate = useNavigate();
     useEffect(() => {
         axios.get(`${API_KEY}/product/productId?id=${id}`)
             .then((response) => {
@@ -22,6 +22,24 @@ function ProductDetail() {
                 console.error(error);
             });
     }, [id]);
+    const handleSubmit = async (event, productId) => {
+        event.preventDefault();
+        if (user === null) {
+            navigate('/sign-up');
+        } else {
+            const userData = {
+                productId: productId,
+                userId: user,
+                quantity: quantity
+            };
+            try {
+                await axios.post(`${API_KEY}/cart`, userData);
+                alert("Bạn đã đặt hàng thành công.");
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    };
     return (
         <>
             <div className='productdetail-container'>
@@ -44,7 +62,7 @@ function ProductDetail() {
                         <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} min="1" max={data.quantity} />
                         <h5>Category: {brand}</h5>
                         <div className="cart" style={{ width: '200px', marginLeft: 'auto', marginRight: 'auto' }}>
-                            <Button buttonStyle='btn--outline'>Add To Cart</Button>
+                            <Button onClick={event => handleSubmit(event, data.productId)} buttonStyle='btn--outline'>Add To Cart</Button>
                         </div>
                     </div>
                 </div>

@@ -75,6 +75,34 @@
   .menu-icon {
     display: none;
   }
+  .menu-button-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .menu-button-img {
+    width: 50px; /* Điều chỉnh kích thước hình ảnh theo nhu cầu */
+    height: 50px; /* Điều chỉnh kích thước hình ảnh theo nhu cầu */
+    border-radius: 50%; /* Tạo góc cong cho hình ảnh */
+  }
+  
+  .menu-item {
+    background-color: #f0f0f0; /* Màu nền cho MenuItem */
+    padding: 10px; /* Khoảng cách nội dung bên trong MenuItem */
+    width : 200px;
+  }
+  
+  .menu-item:focus,
+  .menu-item:hover {
+    background-color: #dcdcdc; /* Màu nền khi MenuItem được hover hoặc focus */
+  }
+  
+  /* Loại bỏ dấu chấm ở đầu MenuItem */
+  .menu-item::before {
+    display: none;
+    list-style-type: none;
+  }
+  
   
   @media screen and (max-width: 960px) {
     .NavbarItems {
