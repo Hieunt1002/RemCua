@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Pages/Home';
 import Services from './components/Pages/Services';
@@ -13,25 +13,66 @@ import ProfileUser from './components/Pages/ProfileUser';
 import ProductAdmin from './components/Pages/ProductAdmin';
 import CartAdmin from './components/Pages/CartAdmin';
 import CustomerPage from './components/Pages/CustomerPage';
-import register from './components/Pages/register';
+import Register from './components/Pages/register';
 import ResetPassPage from './components/Pages/ResetPassPage';
+import axios from 'axios';
+import { API_KEY } from './utils/createAxios';
 
 function App() {
+  const user = localStorage.getItem('user');
+  const [data, setData] = useState(null); // Changed from empty string to null
+  const fetchUserData = async () => {
+    try {
+      const response = await axios.get(`${API_KEY}/user/UserInfor?id=${user}`);
+      setData(response.data);
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+    }
+  };
+  useEffect(() => {
+    if (user) {
+      fetchUserData();
+    }
+  }, [user]);
+
   return (
     <Router>
       <Routes>
-        <Route path='/' exact Component={Home}/>
-        <Route path='/services' Component={Services}/>
-        <Route path='/resetpass' Component={ResetPassPage}/>
-        <Route path='/products' Component={Products}/>
-        <Route path='/sign-up' Component={SignUp}/>
-        <Route path='/cart' Component={CartCustomer}/>
-        <Route path='/cartadmin' Component={CartAdmin}/>
-        <Route path='/profile' Component={ProfileUser}/>
-        <Route path='/productAdmin' Component={ProductAdmin}/>
-        <Route path='/customer' Component={CustomerPage}/>
-        <Route path='/register' Component={register}/>
-        <Route path='/productdetal/:id' Component={ProductDetail}/>
+        {user ? (
+          <>
+            {data && (
+              <>
+                 {data.roleId !== 1 ? (
+                  <>
+                    <Route path='/' element={<Home />} />
+                    <Route path='/productdetal/:id' element={<ProductDetail />} />
+                    <Route path='/services' element={<Services />} />
+                    <Route path='/resetpass' element={<ResetPassPage />} />
+                    <Route path='/products' element={<Products />} />
+                    <Route path='/cart' element={<CartCustomer />} />
+                    <Route path='*' element={<Navigate to="/" />} />
+                  </>
+                ) : (
+                  <>
+                    <Route path='/cartadmin' element={<CartAdmin />} />
+                    <Route path='/profile' element={<ProfileUser />} />
+                    <Route path='/productAdmin' element={<ProductAdmin />} />
+                    <Route path='/customer' element={<CustomerPage />} />
+                    <Route path='*' element={<Navigate to="/productAdmin" />} />
+                  </>
+                )}
+                <Route path='*' element={<Navigate to="/" />} />
+              </>
+            )}
+          </>
+        ) : (
+          <>
+            <Route path='/' element={<Home />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/sign-up' element={<SignUp />} />
+            <Route path='*' element={<Navigate to="/" />} />
+          </>
+        )}
       </Routes>
     </Router>
   );
