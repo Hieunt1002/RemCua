@@ -1,13 +1,14 @@
 import React from 'react';
 import '../../App.css';
-import Cards from '../Cards';
-import HeroSection from '../HeroSection';
+import Product from '../Product';
+import Navbar from '../Navbar';
 import Footer from '../Footer';
 
 function Products() {
   return (
     <>
-      <Cards />
+      <Navbar />
+      <Product />
       <Footer />
     </>
   );

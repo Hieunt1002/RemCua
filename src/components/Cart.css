@@ -1,0 +1,8 @@
+.selected-option {
+    color: red; /* Màu của tùy chọn được chọn */
+    font-weight: bold; /* In đậm cho tùy chọn được chọn */
+    /* Thêm các phong cách khác tùy thuộc vào nhu cầu */
+}
+.selected{
+    color : black;
+}

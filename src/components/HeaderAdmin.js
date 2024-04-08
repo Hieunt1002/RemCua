@@ -7,7 +7,7 @@ import { API_KEY } from '../utils/createAxios';
 import { Menu, MenuButton, MenuItem } from '@szhsin/react-menu';
 import axios from 'axios';
 
-function Navbar() {
+function HeaderAdmin() {
   const navigate = useNavigate();
   const [data, setData] = useState('');
   const [click, setClick] = useState(false);
@@ -47,7 +47,7 @@ function Navbar() {
     <>
       <nav className='navbar'>
         <div className='navbar-container'>
-          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+          <Link to='/productAdmin' className='navbar-logo' onClick={closeMobileMenu}>
             Rèm Cửa Như Ý
           </Link>
           <div className='menu-icon' onClick={handleClick}>
@@ -55,27 +55,31 @@ function Navbar() {
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
-              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                Trang Chủ
-              </Link>
-            </li>
-            <li className='nav-item'>
               <Link
-                to='/products'
+                to='/productAdmin'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
                 Sản Phẩm
               </Link>
             </li>
+            <li className='nav-item'>
+              <Link
+                to='/cartadmin'
+                className='nav-links'
+                onClick={closeMobileMenu}
+              >
+                Đơn hàng
+              </Link>
+            </li>
             {user === null ? null :
               <li className='nav-item'>
                 <Link
-                  to='/cart'
+                  to='/customer'
                   className='nav-links'
                   onClick={closeMobileMenu}
                 >
-                  Giỏ hàng
+                  Người dùng
                 </Link>
               </li>
             }
@@ -99,4 +103,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default HeaderAdmin;

@@ -1,0 +1,28 @@
+/* ProductDetail.css */
+.productdetail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.productdetail-container .product-img {
+    margin-right: 50px;
+}
+
+.product-text {
+    max-width: 400px;
+}
+
+.start {
+    margin-top: 10px;
+}
+
+.size {
+    margin-top: 20px;
+}
+
+.cart {
+    margin-top: 20px;
+    background-color: green;
+}
