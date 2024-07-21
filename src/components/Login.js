@@ -30,6 +30,7 @@ function Login() {
                 }
                 localStorage.setItem('token', response.data.token);
                 localStorage.setItem('user', response.data.data.userId);
+
                 if (response.data.data.roles.roleName === 'Admin') {
                     navigate('/productAdmin');
                 }else{

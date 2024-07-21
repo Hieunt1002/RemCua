@@ -91,7 +91,11 @@ function Navbar() {
                 </Link>
               </MenuItem>
               <MenuItem onClick={handleLogoutClick} className="menu-item">Đăng xuất</MenuItem>
-              <MenuItem className="menu-item">Thay đổi mật khẩu</MenuItem>
+              <MenuItem className="menu-item">
+                <Link to="/resetpass" style={{textDecoration : 'none', color : 'black'}}>
+                  Thay đổi mật khẩu
+                </Link>
+              </MenuItem>
             </Menu>}
         </div>
       </nav>

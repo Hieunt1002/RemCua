@@ -90,12 +90,16 @@ function HeaderAdmin() {
               <img src={data.uImg} alt="Menu" className="menu-button-img" />
             </div>} transition>
               <MenuItem className="menu-item">
-                <Link to='/profile' style={{textDecoration : 'none', color : 'black'}}>
+                <Link to='/profile' style={{ textDecoration: 'none', color: 'black' }}>
                   Thông tin cá nhân
                 </Link>
               </MenuItem>
               <MenuItem onClick={handleLogoutClick} className="menu-item">Đăng xuất</MenuItem>
-              <MenuItem className="menu-item">Thay đổi mật khẩu</MenuItem>
+              <MenuItem className="menu-item">
+                <Link to="/resetpass" style={{textDecoration : 'none', color : 'black'}}>
+                  Thay đổi mật khẩu
+                </Link>
+              </MenuItem>
             </Menu>}
         </div>
       </nav>

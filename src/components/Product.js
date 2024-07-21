@@ -19,14 +19,14 @@ function Product() {
     const handleSearch = () => {
         let url;
         if (!searchQuery) {
-            url = `${API_KEY}/product`;
+            url = `https://localhost:7016/odata/Product`;
         } else {
-            url = `${API_KEY}/product/name?name=${searchQuery}`;
+            url = `https://localhost:7016/odata/Product?$filter=contains(productName, '${searchQuery}')`;
         }
     
         axios.get(url)
             .then(response => {
-                setData(response.data);
+                setData(response.data.value);
             })
             .catch(error => {
                 console.error('Error searching:', error);
@@ -34,15 +34,17 @@ function Product() {
     };
     
     useEffect(() => {
-        axios
-            .get(
-                selectedBrand === null ?
-                    `${API_KEY}/product` : `${API_KEY}/product/brandId?id=${selectedBrand}`
-            )
-            .then(res => setData(res?.data))
-            .catch(err => {
-                console.log(err?.message);
-            });
+        axios.get(
+            selectedBrand === null
+              ? `https://localhost:7016/odata/Product`
+              : `https://localhost:7016/odata/Product?$filter=brandId eq ${selectedBrand}`
+          )
+          .then(res => {
+            setData(res.data.value);
+          })
+          .catch(err => {
+            console.log(err.message);
+          });
         axios
             .get(
                 `${API_KEY}/brand`
@@ -53,9 +55,9 @@ function Product() {
             });
         axios
             .get(
-                `${API_KEY}/product/top3`
+                `https://localhost:7016/odata/Product?$orderby=productId%20desc&$top=4`
             )
-            .then(res => setTop(res?.data))
+            .then(res => setTop(res?.data.value))
             .catch(err => {
                 console.log(err?.message);
             });

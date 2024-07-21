@@ -38,41 +38,18 @@ function App() {
   return (
     <Router>
       <Routes>
-        {user ? (
-          <>
-            {data && (
-              <>
-                 {data.roleId !== 1 ? (
-                  <>
-                    <Route path='/' element={<Home />} />
-                    <Route path='/productdetal/:id' element={<ProductDetail />} />
-                    <Route path='/services' element={<Services />} />
-                    <Route path='/resetpass' element={<ResetPassPage />} />
-                    <Route path='/products' element={<Products />} />
-                    <Route path='/cart' element={<CartCustomer />} />
-                    <Route path='*' element={<Navigate to="/" />} />
-                  </>
-                ) : (
-                  <>
-                    <Route path='/cartadmin' element={<CartAdmin />} />
-                    <Route path='/profile' element={<ProfileUser />} />
-                    <Route path='/productAdmin' element={<ProductAdmin />} />
-                    <Route path='/customer' element={<CustomerPage />} />
-                    <Route path='*' element={<Navigate to="/productAdmin" />} />
-                  </>
-                )}
-                <Route path='*' element={<Navigate to="/" />} />
-              </>
-            )}
-          </>
-        ) : (
-          <>
-            <Route path='/' element={<Home />} />
-            <Route path='/register' element={<Register />} />
-            <Route path='/sign-up' element={<SignUp />} />
-            <Route path='*' element={<Navigate to="/" />} />
-          </>
-        )}
+        <Route path='/' element={<Home />} />
+        <Route path='/productdetal/:id' element={<ProductDetail />} />
+        <Route path='/services' element={<Services />} />
+        <Route path='/resetpass' element={<ResetPassPage />} />
+        <Route path='/products' element={<Products />} />
+        <Route path='/cart' element={<CartCustomer />} />
+        <Route path='/cartadmin' element={<CartAdmin />} />
+        <Route path='/profile' element={<ProfileUser />} />
+        <Route path='/productAdmin' element={<ProductAdmin />} />
+        <Route path='/customer' element={<CustomerPage />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/sign-up' element={<SignUp />} />
       </Routes>
     </Router>
   );
